@@ -1,0 +1,77 @@
+.fa-star-o {
+    color: #ccc;
+}
+
+.fa-star-o.active {
+    color: deeppink;
+}
+h2{
+    font-size: 40px;
+	color:red;
+	font-weight: 200;
+	font-style: italic;
+	text-shadow:2px 2px 8px #111;
+	line-height: 35px;
+}
+thead{
+    background-color: cadetblue;
+}
+th{
+    color: aliceblue;
+}
+@media screen and (min-width: 336px) and (max-width: 780px) {
+    thead {
+        font-size: 1.3rem;
+    }
+    tbody {
+        font-size: 1.2rem;
+    }
+}
+@media screen and (min-width: 658px) and (max-width: 780px) {
+    thead {
+        font-size: 1.3rem;
+    }
+    tbody {
+        font-size: 1.2rem;
+    }
+}
+@media screen and (min-width: 542px) and (max-width: 657px) {
+    thead {
+        font-size: 1.1rem;
+    }
+    tbody {
+        font-size: 1rem;
+    }
+}
+@media screen and (min-width: 492px) and (max-width: 541px) {
+    thead {
+        font-size: 1rem;
+    }
+    tbody {
+        font-size: 0.8rem;
+    }
+}
+@media screen and (min-width: 400px) and (max-width: 492px) {
+    thead {
+        font-size: 0.8rem;
+    }
+    tbody {
+        font-size: 0.7rem;
+    }
+}
+@media screen and (min-width: 300px) and (max-width: 399px) {
+    thead {
+        font-size: 0.7rem;
+    }
+    tbody {
+        font-size: 0.5rem;
+    }
+}
+@media screen and (min-width: 300px) and (max-width: 399px) {
+    thead {
+        font-size: 0.5rem;
+    }
+    tbody {
+        font-size: 0.3rem;
+    }
+}

@@ -1,0 +1,60 @@
+<!--If array length is greater than 0-->
+<div *ngIf="arr.length>0">
+  <div class="row" style="margin-left: 2%">
+    <div class="col-md-3" style="padding-left: 1%">
+      <label>Current Price Range Slider</label>
+      <!--slider-->
+      <ion-range-slider #sliderElement type="double" max="1000" min=".00001" from_shadow="true" to_shadow="true" grid="true" grid_num="4"
+        prefix=" " postfix="" decorate_both="" (onFinish)="myOnFinish($event, 'price')"></ion-range-slider>
+    </div>
+    <div class="col-md-6" style="padding-left: 6%">
+      <h2>Top Cryptocurrency </h2>
+    </div>
+    <div class="col-md-3">
+      <label>Market Cap Range Slider</label>
+      <!--slider-->
+      <ion-range-slider #sliderElement type="double" max="3000000000" min="10000000" from_shadow="true" to_shadow="true" grid="true"
+        grid_num="3" prefix=" " postfix="" decorate_both="false" (onFinish)="myOnFinish($event, 'marketCap')"></ion-range-slider>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered table-striped">
+        <!--table Head-->
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Symbol</th>
+            <th scope="col" (click)="sort('quotes.USD.price')"> Current Price</th>
+            <th scope="col" (click)="sort('quotes.USD.market_cap')">Market Cap</th>
+            <th scope="col">Price Chart</th>
+            <th scope="col">Favourite</th>
+          </tr>
+        </thead>
+        <!--Table body-->
+        <tbody>
+          <tr *ngFor="let items of arr | orderBy: key : reverse | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
+            <td> {{ i+1 }}
+              <input type="checkbox" (change)="onChange(items.id, $event.target.checked)">
+            </td>
+            <td>{{items.name}}</td>
+            <td>{{items.symbol}}</td>
+            <td>{{items.quotes.USD.price}}</td>
+            <td>{{items.quotes.USD.market_cap}}</td>
+            <td (click)="chartPrice(items)" style="cursor: pointer;"> {{items.name}} Price Graph</td>
+            <td>
+              <i class="fa fa-star-o" aria-hidden="true" (click)="onSelect(items.id)" [ngClass]="{active: isActive(items.id)}"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event" style="float: right"></pagination-controls>
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-lg-12">
+      <button class="btn btn-info" (click)="OnSelectCurrency()">Comparison View</button>
+    </div>
+  </div>
+</div>
